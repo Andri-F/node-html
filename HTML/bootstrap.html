@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BoloBolo</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
+      <script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
+      
+
+      <style>
+        body {
+          background-color:white;
+        }
+    
+        .feather {
+          width: 16px;
+          height: 16px;
+          vertical-align: text-bottom;
+        }
+        .btn-custom { 
+            color: #ffffff; 
+            background-color: orange;
+            border-color: #0a06ec; 
+        }
+
+        .my-custom-scrollbar {
+          position: relative;
+          width: 100%;
+          height: 400px;
+          overflow: auto;
+        }
+        
+        .table-wrapper-scroll-y {
+          display: block;
+        }
+
+        .dropdown:hover .isi-dropdown {
+		      display: inline-block;
+	      }
+ 
+	      .isi-dropdown a:hover {
+		      color: #fff;
+	      }
+ 
+	      .isi-dropdown {
+		      position: relative;
+		      display: none;
+		      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		      background-color: #f9f9f9;
+	      }
+ 
+	      .isi-dropdown a {
+		      color: #3c3c3c;
+	      }
+ 
+	      .isi-dropdown a:hover {
+		      color: #232323;
+		      background: #f3f3f3;
+        }
+        
+        .table-hover tbody tr:hover{
+          color: black;
+        }
+
+        .dark .table-hover tbody tr:hover{
+          color: white;
+        }
+      </style>
+
+<style>
+  /* Center the loader */
+  #loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Add animation to "page content" */
+  .animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+  }
+  
+  @-webkit-keyframes animatebottom {
+    from { bottom:-100px; opacity:0 } 
+    to { bottom:0px; opacity:1 }
+  }
+  
+  @keyframes animatebottom { 
+    from{ bottom:-100px; opacity:0 } 
+    to{ bottom:0; opacity:1 }
+  }
+  
+  #myDiv {
+    display: none;
+    text-align: center;
+  }
+
+  .dark {
+    background-color: rgb(65, 13, 56);
+    color: #e6e6e6;
+  }
+
+  .dar {
+    background-color: orange;
+  }
+
+  .dark .dar {
+    background-color: tomato;
+  }
+
+  .change {
+    cursor: pointer;
+    border: 1px solid #555;
+    border-radius: 40%;
+    width: 20px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 8px;
+  }
+
+  .dark tr {
+    color: white;
+  }
+
+  .dark tr:hover {
+    color: rgb(233, 217, 217);
+  }
+  </style>
+</head>
+<body onload="myFunction()">
+<script>
+    var myVar;
+    
+    function myFunction() {
+      myVar = setTimeout(showPage, 3000);
+    }
+    
+    function showPage() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("myDiv").style.display = "block";
+    }
+    </script>
+
+    <div id="loader"></div>
+    <div class="animate-bottom" style="display:none; text-decoration-line: lin;" id="myDiv">
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark , dar">
+      <a class="navbar-brand" href="#">
+        <i data-feather="slack"></i>
+        <a href="Main.html" style="text-decoration: none;">
+            <p style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: white; font-size: 35px;
+            ">BoloBolo</p>
+        </a>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#Home">
+                  <i data-feather="server"></i>
+                    Dashboard<span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Delivery">
+                  <i data-feather="user"></i>
+                    Delivery
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i data-feather="shopping-bag"></i>
+                    Products
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">
+                      <i data-feather="monitor"></i>
+                      Category
+                    </a>
+                      <ul class="isi-dropdown">
+                        <li>
+                          <a class="dropdown-item" href="#">
+                          <i data-feather="monitor"></i>
+                          Computer and Accessories
+                          </a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">
+                          <i data-feather="monitor"></i>
+                          Handphone and Accessories
+                          </a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">
+                          <i data-feather="monitor"></i>
+                          Fashion and Beauty
+                          </a>
+                        </li>
+                      </ul>
+                    <a class="dropdown-item" href="#">
+                      <i data-feather="tool"></i>
+                      Popular
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i data-feather="tool"></i>
+                      Recommended
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                      <i data-feather="package"></i>
+                      View All Products
+                    </a>
+                  </div>
+              <li class="nav-item">
+                <a class="nav-link" href="#AboutUs">
+                  <i data-feather="user"></i>
+                    About Us
+                </a>
+              </li>
+        </ul>  
+        <div class="mode" style="padding-top: 0.5%"> 
+          <div style="margin:1%; margin-bottom: 0%;">Dark mode:              
+              <span class="change">OFF</span> 
+          </div>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-lg btn-custom" type="submit">
+              <i data-feather="search"></i>
+              Search
+            </button>
+        </form>
+     </div>
+    </nav>
+
+    <div class="container" id="Home">
+        <h1 class="mt-3">Dashboard</h1>
+        <hr>
+        <div class="row mb-4">
+          <div class="col-sm mx-3 px-5 py-3 border rounded">
+            <div class="row">
+              <div class="col-sm">
+                <h5 class="my-2 text-warning">Customers</h5>
+                <h4 class="text-info">623</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm mx-3 px-5 py-3 border rounded">
+            <div class="row">
+              <div class="col-sm">
+                <h5 class="my-2 text-warning">Sales</h5>
+                <h4 class="text-info">IDR 1,076,938</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm mx-3 px-5 py-3 border rounded">
+            <div class="row">
+              <div class="col-sm">
+                <h5 class="my-2 text-warning">Performance</h5>
+                <h4 class="text-info">97%</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-sm mx-3 border rounded">
+              <h4 class="my-2">Invoice</h4>
+              <form class="pb-3">
+                <div class="form-group">
+                  <label for="inputInvoiceNo">Invoice No</label>
+                  <input type="text" class="form-control" id="inputInvoiceNo" aria-describedby="invoiceNoHelp">
+                  <small id="invoiceNoHelp" class="form-text text-muted">INV-##/DD/MM/YYYY</small>
+                </div>
+                <div class="form-group">
+                  <label for="inputNotes">Notes</label>
+                  <input type="text" class="form-control" id="inputNotes">
+                </div>
+                <button type="submit" class="btn btn-warning">Save</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <h4 class="my-2">Customers</h4>
+              <div class="table-wrapper-scroll-y my-custom-scrollbar">
+               <table class="table" data-toggle="table">
+                <thead>
+                  <th data-sortable="true">No</th>
+                  <th data-sortable="false">Full Name</th>
+                  <th data-sortable="false">Email</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Andreas Lukman</td>
+                    <td>andreaslukman@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Candra Wijaya</td>
+                    <td>candrawijaya@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Jean Natalia Halim</td>
+                    <td>jeannatalia@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Jonathan Farrel</td>
+                    <td>jfarrel@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Karel Tan</td>
+                    <td>kareltan@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Nanda Putra</td>
+                    <td>nandaputra@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Octavionus Chandra</td>
+                    <td>octa.chandra@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Peter Gunawan</td>
+                    <td>peterg@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Tanita</td>
+                    <td>tanita@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Timothy Sanjaya</td>
+                    <td>timothysanjaya@gmail.com</td>
+                  </tr>
+                </tbody>
+               </table>
+              </div>
+            </div>
+          </div>
+          <script> 
+            $( ".change" ).on("click", function() { 
+                if( $( "body" ).hasClass( "dark" )) { 
+                    $( "body" ).removeClass( "dark" ); 
+                    $( ".change" ).text( "OFF" ); 
+                } else { 
+                    $( "body" ).addClass( "dark" ); 
+                    $( ".change" ).text( "ON" ); 
+                } 
+            }); 
+        </script>
+</body>
+  
+<body>
+  <div class="container" id="Delivery">
+    <h2 class="mt-3">Delivery</h2>
+      <hr>
+        <div class="row mb-4">
+          <div class="col-sm mx-3 px-5 py-3 border rounded">
+            <div class="row">
+              <div class="col-sm">
+                <h5 class="my-2 text-warning">New Order</h5>
+                <h4 class="text-info">252</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm mx-3 px-5 py-3 border rounded">
+            <div class="row">
+              <div class="col-sm">
+                <h5 class="my-2 text-warning">On Delivery</h5>
+                 <h4 class="text-info">122</h4>
+              </div>
+            </div>
+          </div>
+           <div class="col-sm mx-3 px-5 py-3 border rounded">
+            <div class="row">
+              <div class="col-sm">
+               <h5 class="my-2 text-warning">Completed</h5>
+                <h4 class="text-info">458</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+           <div class="row mb-4">
+            <h4 class="my-2">On Delivery</h4>
+              <div class="table-wrapper-scroll-y my-custom-scrollbar">
+               <table class="table table-striped" data-toggle="table">
+                <thead>
+                  <th data-sortable="true">No</th>
+                   <th data-sortable="false">Full Name</th>
+                   <th data-sortable="false">Status</th>
+                   <th data-sortable="false">Address</th>
+                 </thead>
+                 <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Anthony Gunawan</td>
+                    <td>On Process</td>
+                    <td>Kota Bogor</td>
+                   </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Bianca Farinanda</td>
+                    <td>Shipping</td>
+                    <td>Kota Jakarta Barat</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Budi Boediman</td>
+                    <td>On Transit</td>
+                    <td>Kota Jakarta Pusat</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Irfan Helga</td>
+                     <td>On Transit</td>
+                     <td>Kota Bogor</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Joshua Putro Santoso</td>
+                     <td>Shipping</td>
+                     <td>Kota Palembang</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Jusuf Wahyudi</td>
+                    <td>Shipping</td>
+                    <td>Kota Tangerang</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Kiki Saputra</td>
+                     <td>On Process</td>
+                     <td>Kota Surabaya</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Maria Johana</td>
+                     <td>Shipping</td>
+                     <td>Kota Jakarta Timur</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Timothy Imanuel</td>
+                     <td>On Transit</td>
+                     <td>Kota Bandung</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Yusuf Tanjaya</td>
+                     <td>Shipping</td>
+                     <td>Kota Jakarta Utara</td>
+                  </tr>
+                </tbody>
+               </table>
+              </div>
+            </div>
+          </div>
+</body>
+
+<body>
+  <div class="container" id="AboutUs">
+    <h1 class="mt-3">About Us</h1>
+    <hr>
+    <div class="row mb-4">
+      <div class="col-sm mx-3 px-5 py-3 border rounded">
+        <div class="row">
+          <div class="col-sm">
+            <h5 class="my-2 text-warning">Andri Firnandius</h5>
+            <h4 class="text-info">andrifirnandius@gmail.com</h4>
+            <h4 class="text-info">535190045</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm mx-3 px-5 py-3 border rounded">
+        <div class="row">
+          <div class="col-sm">
+            <h5 class="my-2 text-warning">Cynthia Natalie</h5>
+             <h4 class="text-info">cynthianatalie@gmail.com</h4>
+             <h4 class="text-info">535190034</h4>
+          </div>
+        </div>
+      </div>
+        <div class="col-sm mx-3 px-5 py-3 border rounded">
+          <div class="row">
+            <div class="col-sm">
+              <h5 class="my-2 text-warning">Dian Anggraini Cahyaningtyas</h5>
+              <h4 class="text-info">diananggrainict@gmail.com</h4>
+              <h4 class="text-info">535190016</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm mx-3 px-5 py-3 border rounded">
+          <div class="row">
+            <div class="col-sm">
+              <h5 class="my-2 text-warning">Clarence Christiany</h5>
+              <h4 class="text-info">clarencechristiany@gmail.com</h4>
+              <h4 class="text-info">535190039</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm mx-3 px-5 py-3 border rounded">
+          <div class="row">
+            <div class="col-sm">
+              <h5 class="my-2 text-warning">Kevin Kwanda</h5>
+              <h4 class="text-info">Kevinkwanda@gmail.com</h4>
+              <h4 class="text-info">535180114</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm mx-3 px-5 py-3 border rounded">
+          <div class="row">
+            <div class="col-sm">
+              <h5 class="my-2 text-warning">Yonatan Giovanni</h5>
+              <h4 class="text-info">Yonatangiovanni@gmail.com</h4>
+              <h4 class="text-info">535180115</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</div>
+</body>
+</html>

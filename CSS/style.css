@@ -1,0 +1,451 @@
+@viewport {
+    width: device-width;
+}
+
+@media screen and (min-width: 330px) and (max-width: 480px) {
+    /* comes into effect for screens between 321 and 480 pixels (inclusive) */
+    #somethingorother {
+        width: auto;
+    }
+}
+
+
+
+.logo {
+    width: 50%;
+    -webkit-transition: 1s
+}
+
+.logo1 {
+    width: 70%;
+    -webkit-transition: 1s
+}
+
+.tabel {
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    border-style: solid;
+}
+
+.button {
+    width: 250px;
+    height: auto;
+    font-size: 40px;
+    border-style: double;
+}
+
+.headback {
+    background-image: linear-gradient(rgb(235, 218, 145), rgb(255, 255, 181));
+    width: 100%;
+    height: auto;
+    margin: 0% auto;
+    padding: 0px;
+}
+
+.backgron {
+    background-color: white;
+    width: 100%;
+    height: auto;
+    margin-top: 0%;
+    padding-top: 0px;
+    max-width: 1400px;
+    margin: 0% auto;
+    min-width: 360px;
+}
+
+.container {
+    background-image: url("woodtexture1.jpg");
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0px;
+    padding-top: 0%;
+}
+
+.gambar {
+    margin-left: 15px;
+}
+
+.gambar1 {
+    margin-left: 0px;
+}
+
+.gambar:hover {
+    background-color: #ebf0f5;
+    -webkit-transition: 1s;
+}
+
+.gambar1:hover {
+    background-color: #ebf0f5;
+    -webkit-transition: 1s;
+}
+
+.baju {
+    background-color: #5fb0f1;
+    -webkit-transition: 1s;
+    max-height: 400px;
+}
+
+.baju:hover {
+    background-color: #74cff3;
+}
+
+.text {
+    margin: 0%;
+    font-size: 20px;
+    opacity: 100%;
+    text-decoration: none;
+}
+
+.signinbtn {
+    float: right;
+    margin: 0%;
+    margin-right: 20px;
+    background-image: linear-gradient(rgb(235, 218, 145), rgb(255, 255, 181));
+    width: 50px;
+    height: 50px;
+    font-size: large;
+    color: orange;
+    transition: transform .2s;
+    border-style: double;
+    border-radius: 10%;
+    outline-style: none;
+}
+
+.signinbtn:hover {
+    transform: scale(1.2);
+}
+
+.signinfont {
+    float: right;
+    margin: 0%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    color: orange
+}
+
+.dropbtn {
+    background-color: coral;
+    -webkit-transition: 0.5s;
+    width: 249%;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    min-width: 80px;
+    margin: 0%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(30, 120, 255);
+    min-width: 180px;
+    z-index: 1;
+    font-size: 30px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.home {
+    text-align: center;
+    font-size: 16px;
+    background-color: rgb(30, 120, 255);
+    height: 35px;
+}
+
+.home:hover {
+    background-color: #0c4af5e0;
+    -webkit-transition: 0.2s;
+}
+
+.dropdown-content a:hover {
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #dba718;
+}
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+
+/* Style the submit button */
+
+form.example button {
+    float: left;
+    width: auto;
+    height: 42px;
+    padding: 10px;
+    background: #1b486d;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    /* Prevent double borders */
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #092338;
+}
+
+
+/* Clear floats */
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.darktext {
+    color: blue;
+    font-size: min(5vw, 20px);
+}
+
+.harga {
+    color: green;
+    font-size: min(3.5vw, 20px);
+}
+
+.boxes {
+    margin-top: 20px;
+}
+
+.boxes .box {
+    float: left;
+    text-align: left;
+    width: 29%;
+    padding: 5px;
+}
+
+.boxes b {
+    font-size: min(1.5vw, 25px);
+}
+
+.boxes li {
+    font-size: min(1vw, 15px);
+}
+
+footer {
+    padding: 20px;
+    margin-top: 0px;
+    color: rgb(243, 147, 23);
+    background-image: linear-gradient(rgb(235, 218, 145), rgb(255, 255, 181));
+    text-align: start;
+    height: 240px;
+}
+
+footer h6 {
+    padding: 0px;
+    margin: 0px;
+    color: black;
+    display: inline;
+}
+
+footer ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+footer li {
+    list-style-type: none;
+    color: rgb(155, 75, 10);
+}
+
+footer li:hover {
+    color: rgb(109, 53, 8);
+}
+
+#searchbar {
+    background-color: rgb(255, 255, 181);
+    padding: 15px;
+    border-radius: 5px;
+    float: right;
+    border-style: hidden;
+}
+
+input[type=text] {
+    width: 30%;
+    -webkit-transition: width 0.15s ease-in-out;
+    transition: width 0.15s ease-in-out;
+}
+
+
+/* When the input field gets focus, 
+     change its width to 100% */
+
+input[type=text]:focus {
+    width: 70%;
+}
+
+#list {
+    font-size: 1.5em;
+    margin-left: 90px;
+}
+
+.items {
+    display: list-item;
+}
+
+#li {
+    list-style-type: none;
+}
+
+.change {
+    cursor: pointer;
+    border: 1px solid #555;
+    border-radius: 40%;
+    width: 20px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 8px;
+}
+
+.dark {
+    background-color: rgb(65, 13, 56);
+    color: #e6e6e6;
+}
+
+.dark .gambar {
+    background-color: #350432;
+}
+
+.dark .gambar1 {
+    background-color: #350432;
+}
+
+.dark .headback {
+    background-image: linear-gradient(rgb(61, 9, 50), rgb(80, 9, 68));
+}
+
+.dark .logo {
+    filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);
+    filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);
+}
+
+.dark .logo1 {
+    filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);
+    filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);
+}
+
+.dark .dropbtn {
+    background-color: #350432;
+}
+
+.dark .dropdown:hover .dropbtn {
+    background-color: #630d5e;
+}
+
+.dark .dropdown-content {
+    background-color: darkblue;
+}
+
+.dark .home {
+    background-color: darkblue;
+}
+
+.dark .home:hover {
+    background-color: rgb(30, 120, 255);
+}
+
+.dark .darkbtn {
+    border-style: none;
+    background-color: darkblue;
+}
+
+.dark .darkbtn:hover {
+    border-style: none;
+    background-color: rgb(30, 120, 255);
+}
+
+.dark .baju {
+    background-color: rgb(59, 12, 59);
+}
+
+.dark .baju:hover {
+    background-color: darkmagenta;
+}
+
+.dark footer {
+    background-image: linear-gradient(rgb(61, 9, 50), rgb(80, 9, 68));
+}
+
+.dark footer h6 {
+    color: #ffffff;
+}
+
+.dark footer li {
+    color: aqua;
+}
+
+.dark footer li:hover {
+    color: rgb(4, 243, 163);
+}
+
+.dark #searchbar {
+    background-color: #350432;
+}
+
+.dark .signinbtn {
+    color: darkviolet;
+    background-image: linear-gradient(rgb(61, 9, 50), rgb(80, 9, 68));
+    ;
+}
+
+.dark .signinfont {
+    color: darkviolet;
+}
+
+.dark .darktext {
+    color: white;
+}
+
+.dark .gambar:hover {
+    background-color: rgb(20, 20, 46);
+}
+
+.dark .gambar1:hover {
+    background-color: rgb(20, 20, 46);
+}
+
+.blink_me {
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    40% {
+        opacity: 0.55;
+    }
+}
+
+.dar {
+    background-color: orange;
+}
+
+.dark .dar {
+    background-color: tomato;
+}

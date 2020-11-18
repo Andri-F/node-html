@@ -50,8 +50,8 @@ const routes = {
     '/'     : '<h1> Hello </h1>',
     '/about': '<h1> wanna know more?</h1> <p>click here!</p>'
     */
-   '/'      : 'views/index.html',
-   '/about' : 'views/about.html'
+   '/'      : 'HTML/Main.html',
+   '/about' : 'HTML/.html'
 }
 
 const app = http.createServer(function (request, response) {

@@ -1,0 +1,33 @@
+.descimg {
+    margin-left: 5%;
+    width: 20%;
+    height: 20%;
+}
+
+.desc {
+    font-family:Verdana, Geneva, Tahoma, sans-serif; 
+    background-color: #ffffff;
+    padding: 3%;
+}
+
+.descbtn {
+    border-style: double; 
+    padding-left: 1%; 
+    padding-right: 1%;
+    margin-top: 0%;
+}
+
+.dark{ 
+    background-color: rgb(65, 13, 56); 
+    color: #e6e6e6; 
+  } 
+
+.dark .desc {
+    background-color: rgb(49, 10, 43);
+    color: rgb(255, 255, 255);
+}
+
+.dark .descbtn {
+    color: rgb(255, 255, 255);
+    background-color: rgb(29, 28, 28);
+}

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <title>Login BoloBolo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../CSS/util.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css" <!--===============================================================================================-->
+
+    <style type="text/css">
+        .headback {
+            background-image: linear-gradient(rgb(235, 218, 145), rgb(255, 255, 181));
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            padding: 0px;
+        }
+    </style>
+    <style>
+        .chromeframe {
+            background: #ccc;
+            color: #000;
+            padding: 0.2em 0;
+        }
+        
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+        }
+        
+        #loader {
+            display: block;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #3498db;
+            -webkit-animation: spin 2s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 2s linear infinite;
+            /* Chrome, Firefox 16+, IE 10+, Opera */
+            z-index: 1001;
+        }
+        
+        #loader:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #e74c3c;
+            -webkit-animation: spin 3s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 3s linear infinite;
+            /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        
+        #loader:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #f9c922;
+            -webkit-animation: spin 1.5s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 1.5s linear infinite;
+            /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);
+                /* IE 9 */
+                transform: rotate(0deg);
+                /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);
+                /* IE 9 */
+                transform: rotate(360deg);
+                /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);
+                /* IE 9 */
+                transform: rotate(0deg);
+                /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);
+                /* IE 9 */
+                transform: rotate(360deg);
+                /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        
+        #loader-wrapper .loader-section {
+            position: fixed;
+            top: 0;
+            width: 51%;
+            height: 100%;
+            background: #222222;
+            z-index: 1000;
+            -webkit-transform: translateX(0);
+            /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: translateX(0);
+            /* IE 9 */
+            transform: translateX(0);
+            /* Firefox 16+, IE 10+, Opera */
+        }
+        
+        #loader-wrapper .loader-section.section-left {
+            left: 0;
+        }
+        
+        #loader-wrapper .loader-section.section-right {
+            right: 0;
+        }
+        /* Loaded */
+        
+        .loaded #loader-wrapper .loader-section.section-left {
+            -webkit-transform: translateX(-100%);
+            /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: translateX(-100%);
+            /* IE 9 */
+            transform: translateX(-100%);
+            /* Firefox 16+, IE 10+, Opera */
+            -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+        
+        .loaded #loader-wrapper .loader-section.section-right {
+            -webkit-transform: translateX(100%);
+            /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: translateX(100%);
+            /* IE 9 */
+            transform: translateX(100%);
+            /* Firefox 16+, IE 10+, Opera */
+            -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+        
+        .loaded #loader {
+            opacity: 0;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+        
+        .loaded #loader-wrapper {
+            visibility: hidden;
+            -webkit-transform: translateY(-100%);
+            /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: translateY(-100%);
+            /* IE 9 */
+            transform: translateY(-100%);
+            /* Firefox 16+, IE 10+, Opera */
+            -webkit-transition: all 0.3s 1s ease-out;
+            transition: all 0.3s 1s ease-out;
+        }
+        
+        #content {
+            margin: 0 auto;
+            width: 100%;
+        }
+        /*
+    * Image replacement
+    */
+        
+        .ir {
+            background-color: transparent;
+            border: 0;
+            overflow: hidden;
+            /* IE 6/7 fallback */
+            *text-indent: -9999px;
+        }
+        
+        .ir:before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 150%;
+        }
+        /*
+    * Hide from both screenreaders and browsers: h5bp.com/u
+    */
+        
+        .hidden {
+            display: none !important;
+            visibility: hidden;
+        }
+        /*
+    * Hide only visually, but have it available for screenreaders: h5bp.com/v
+    */
+        
+        .visuallyhidden {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        /*
+    * Extends the .visuallyhidden class to allow the element to be focusable
+    * when navigated to via the keyboard: h5bp.com/p
+    */
+        
+        .visuallyhidden.focusable:active,
+        .visuallyhidden.focusable:focus {
+            clip: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            position: static;
+            width: auto;
+        }
+        /*
+    * Hide visually and from screenreaders, but maintain layout
+    */
+        
+        .invisible {
+            visibility: hidden;
+        }
+    </style>
+    <style>
+         body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+        
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #fff;
+        }
+        
+        /* Add a background color when the inputs get focus */
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #fff;
+          outline: none;
+        }
+
+        /*------------------------------------------------------------------
+        [ Button ]*/
+        .container-login100-form-btn {
+            width: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .login100-form-btn {
+            font-family: Raleway-Bold;
+            font-size: 16px;
+            color: #fff;
+            line-height: 1.2;
+
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            min-width: 150px;
+            height: 55px;
+            background-color: orange;
+            border-radius: 27px;
+
+            -webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            transition: all 0.4s;
+        }
+
+        .login100-form-btn:hover {
+            background-color: blue;
+        }
+
+        .dark .login100-form-btn{
+            background-color: rgb(42, 6, 51);
+        }
+
+        .dark .login100-form-btn:hover{
+            background-color: rgb(59, 10, 71) ;
+        }
+
+        .dark{ 
+            background-color: rgb(65, 13, 56); 
+            color: #e6e6e6; 
+        } 
+
+        /* Add padding to container elements */
+        .containerx {
+          padding: 16px;
+          background-image: linear-gradient(rgb(235, 218, 145), rgb(255, 255, 181));
+        }
+
+        .dark .containerx {
+            background-image: linear-gradient(rgb(80, 11, 65), rgb(80, 9, 68));
+        }
+        
+        /* The Modal (background) */
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: #474e5d;
+          padding-top: 50px;
+        }
+        
+        /* Modal Content/Box */
+        .modal-content {
+          background-color: #fefefe;
+          margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+          border: 1px solid #888;
+          width: 80%; /* Could be more or less, depending on screen size */
+          display: none;
+        }
+        
+        /* Style the horizontal ruler */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+         
+        /* The Close Button (x) */
+        .close {
+          position: absolute;
+          right: 35px;
+          top: 15px;
+          font-size: 40px;
+          font-weight: bold;
+          color: #f1f1f1;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: #f44336;
+          cursor: pointer;
+        }
+        
+        /* Clear floats */
+        .clearfix::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+        
+        .font{
+            color: gray;
+        }
+
+        .dark .font{
+            color: white;
+        }
+        </style>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+    <!-- Demo content -->
+    <div id="demo-content">
+
+
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+        </div>
+
+        <div id="content">
+
+            <body class="backgron">
+                <div class="">
+                    <div class="headback">
+                        <div class="mode" style="padding-top: 0.5%">
+                            <div style="margin:1%; margin-bottom: 0%;">Dark mode:
+                                <span class="change">OFF</span>
+
+                            </div>
+                        </div>
+                        <br><br>
+                        <h1 class="blink_me" style=" text-align: center;"><img class="logo" src="https://github.com/Kelompok3-WebProgramming/E-Commerce/blob/master/img/bolo1.png?raw=true"></h1>
+                        <p class="blink_me" style="text-align: center;"><img class="logo1" src="https://github.com/Kelompok3-WebProgramming/E-Commerce/blob/master/img/bolobolobelanja.png?raw=true"></p>
+
+                        <br>
+
+
+                        <div class="limiter">
+                            <div class="container-login100">
+                                
+                                    <form class="login100-form validate-form flex-sb flex-w" action="Member.html" method="GET">
+                                        <span class="login100-form-title p-b-32, signtex">
+                                Account Login
+                            </span>
+
+                                        <span class="txt1 p-b-11, signtex">
+                                Username
+                            </span>
+                                        <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+                                            <input id="name" class="input100" type="name" name="name" required>
+                                            <span class="focus-input100"></span>
+                                        </div>
+
+                                        <span class="txt1 p-b-11, signtex">
+                                Password
+                            </span>
+                                        <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
+                                            <span class="btn-show-pass">
+                                    <i class="fa fa-eye"></i>
+                                </span>
+                                            <input class="input100" type="password" required>
+                                            <span class="focus-input100"></span>
+                                        </div>
+
+                                        <div class="flex-sb-m w-full p-b-48">
+                                            <div class="contact100-form-checkbox">
+                                                <input class="input-checkbox100" id="ckb1" type="checkbox">
+                                                <label class="label-checkbox100" for="ckb1">
+                                        <p class="signtex">Remember me</p>
+                                    </label>
+                                            </div>
+
+                                            <div>
+                                                <a href="#" class="txt3, othertex">
+                                        Forgot Password?
+                                    </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-login100-form-btn">
+                                            <button class="login100-form-btn" href="../HTML/main.html">
+                                    Login
+                                </button>
+                                        </div>
+                                        <p class="othertex">Don't have an account? 
+                                            <button class="sign" >Sign Up</button>
+                                        </p>
+                                    </form>
+
+                                    <form class="modal-content" action="Member.html">
+                                        <div class="containerx">
+                                           <span class="login100-form-title p-b-32, signtex">
+                                               Sign Up
+                                           </span>
+                                           <p class="font">Please fill in this form to create an account.</p>
+                                           <hr>
+                                           <label for="username"><b>Username</b></label>
+                                           <input type="text" placeholder="Enter Username" name="username" required>
+                  
+                                           <label for="psw"><b>Password</b></label>
+                                           <input id="password" type="password" placeholder="Enter Password" style="width: 100%;" required>
+                          
+                                           <label for="psw-repeat"><b>Repeat Password</b></label>
+                                           <input id="confirm_password" type="password" placeholder="Repeat Password" style="width: 100%;" required>
+                                
+                                           <label>
+                                              <input type="checkbox" style="margin-bottom:15px"> Remember me 
+                                           </label>
+                                           <p class="othertex">have an account? 
+                                            <button class="sign" >Sign in</dbutton>
+                                        </p>
+                          
+                                           <p class="font">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                          
+                                          <div class="container-login100-form-btn">
+                                          <button class="login100-form-btn" href="../HTML/Member.html">
+                                              Sign Up
+                                          </button>
+                                          </div>
+                                       </div>
+                                      </form>
+
+                                
+                            </div>
+                        </div>
+                        <script>
+                            // Get the modal
+                            var modal = document.getElementById('id01');
+                            
+                            // When the user clicks anywhere outside of the modal, close it
+                            window.onclick = function(event) {
+                              if (event.target == modal) {
+                                modal.style.display = "none";
+                              }
+                            }
+                            </script>
+                        <script src="../Javascript/search.js"></script>
+                        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                        <script>
+                            window.jQuery || document.write('<script src="../javascript/vendor/jquery-1.9.1.min.js"><\/script>')
+                        </script>
+                        <script>
+                            $(document).ready(function() {
+
+                                setTimeout(function() {
+                                    $('body').addClass('loaded');
+                                    $('h1').css('color', '#222222');
+                                }, 2000);
+                            });
+                        </script>
+                           
+                        <script>
+                             $('.othertex button').click(function(){
+                                 $('form').animate({height: "toggle", opacity: "toggle"}, "slow")
+                             })
+                        </script>
+                        <footer>
+                            <section class="boxes">
+                                <div class="container">
+
+                                    <div class="box">
+                                        <h6><b>BoloBolo</b></H6>
+                                        <ul>
+                                            <a href="AboutBoloBolo.html" style="text-decoration: none;">
+                                                <li> About BoloBolo</li>
+                                            </a>
+                                            <a href="DictionaryBolo.html" style="text-decoration: none;">
+                                                <li> Dictionary BoloBolo </li>
+                                            </a>
+                                            <a href="OfficialStoreBolo.html" style="text-decoration: none;">
+                                                <li> Official Store </li>
+                                            </a>
+                                            <a href="Application.html" style="text-decoration: none;">
+                                                <li> Application BoloBolo </li>
+                                            </a>
+                                            <a href="Deals.html" style="text-decoration: none;">
+                                                <li> Deals BoloBolo </li>
+                                            </a>
+                                            <a href="Discount.html" style="text-decoration: none;">
+                                                <li> Discount BoloBolo </li>
+                                            </a>
+                                        </ul>
+                                    </div>
+
+                                    <div class="box">
+                                        <h6><b>Buy</b></h6>
+                                        <ul>
+                                            <a href="#" style="text-decoration: none;">
+                                                <li> Category</li>
+                                            </a>
+                                            <a href="Recomended.html" style="text-decoration: none;">
+                                                <li> Recommended</li>
+                                            </a>
+                                            <a href="popular.html" style="text-decoration: none;">
+                                                <li> Popular</li>
+                                            </a>
+                                            <a href="product.html" style="text-decoration: none;">
+                                                <li> All Products</li>
+                                            </a>
+                                        </ul>
+                                    </div>
+
+
+                                    <div class="box">
+                                        <h6><b>Sell</b></h6>
+                                        <ul>
+                                            <a href="EducationSeller.html" style="text-decoration: none;">
+                                                <li> Education Seller</li>
+                                            </a>
+                                            <a href="BoloBoloPartners.html" style="text-decoration: none;">
+                                                <li> BoloBolo Partners</li>
+                                            </a>
+                                            <a href="OfficialStoreList.html" style="text-decoration: none;">
+                                                <li> Official Store Lists</li>
+                                            </a>
+                                            <br></br>
+                                        </ul>
+                                    </div>
+                                    <aside class="boxes">
+                                        <h6><b>Help Center</b></h6>
+                                        <v1>
+                                            <a href="bolobolocare.html" style="text-decoration: none;">
+                                                <li>BoloBolo Care</li>
+                                            </a>
+                                            <a href="TermsAndCondition.html" style="text-decoration: none;">
+                                                <li>Terms and Condition</li>
+                                            </a>
+                                            <a href="PrivacyPolicy.html" style="text-decoration: none;">
+                                                <li>Privacy Policy</li>
+                                            </a>
+                                        </v1>
+                                    </aside>
+                                </div>
+                            </section>
+                        </footer>
+                        <!--===============================================================================================-->
+                        <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+                        <!--===============================================================================================-->
+                        <script src="../vendor/animsition/js/animsition.min.js"></script>
+                        <!--===============================================================================================-->
+                        <script src="../vendor/bootstrap/js/popper.js"></script>
+                        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+                        <!--===============================================================================================-->
+                        <script src="../vendor/select2/select2.min.js"></script>
+                        <!--===============================================================================================-->
+                        <script src="../vendor/daterangepicker/moment.min.js"></script>
+                        <script src="../vendor/daterangepicker/daterangepicker.js"></script>
+                        <!--===============================================================================================-->
+                        <script src="../vendor/countdowntime/countdowntime.js"></script>
+                        <!--===============================================================================================-->
+                        <script src="../Javascript/main.js"></script>
+                    </div>
+                   
+                    <script>
+                        $(".change").on("click", function() {
+                            if ($("body").hasClass("dark")) {
+                                $("body").removeClass("dark");
+                                $(".change").text("OFF");
+                            } else {
+                                $("body").addClass("dark");
+                                $(".change").text("ON");
+                            }
+                        });
+                    </script>
+                    
+            </body>
+            </div>
+        </div>
+</body>
+
+</html>
